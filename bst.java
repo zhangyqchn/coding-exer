@@ -45,22 +45,6 @@ class Solution2 {
         return isValidBST(root.right);
     }
 }
-    boolean flag = false;
-    public boolean isValidBST(TreeNode root) {
-        if(root == null) return true;
-        // if(!flag){
-        //     TreeNode minNode = root;
-        //     while(minNode.left != null){
-        //         minNode = root.left;
-        //     }
-        //     preval = minNode.val - 1;
-        //     flag = true;
-        // }
-        if((!isValidBST(root.left)) || preval >= root.val) return false;
-        preval = root.val;
-        return isValidBST(root.right);
-    }  
-}
 
 class Solution3 {
     int preval = -2147483648;
