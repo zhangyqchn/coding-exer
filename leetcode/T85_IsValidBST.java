@@ -9,8 +9,8 @@
  * }
  */
 
-class Solution {
-    public boolean isValidBST(TreeNode root) {
+class IsValidBST {
+    public boolean isValidBST0(TreeNode root) {
         if(root == null) return true;
         ArrayList<Integer> list = new ArrayList<Integer>();
         inorder(root, list);
@@ -25,12 +25,10 @@ class Solution {
         list.add(root.val);
         inorder(root.right, list);
     }
-}
-
-class Solution2 {
-    boolean flag = false;
+	
+	boolean flag = false;
     int preval;
-    public boolean isValidBST(TreeNode root) {
+    public boolean isValidBST1(TreeNode root) {
         if(root == null) return true;
         if(!flag){
             TreeNode minNode = root;
@@ -44,10 +42,8 @@ class Solution2 {
         preval = root.val;
         return isValidBST(root.right);
     }
-}
-
-class Solution3 {
-    int preval = -2147483648;
+	
+	int preval = -2147483648;
     public boolean isValidBST(TreeNode root) {
         if(root == null) return true;
         if((!isValidBST(root.left)) || preval >= root.val) return false;
